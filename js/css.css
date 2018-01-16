@@ -1,0 +1,91 @@
+body {
+    font-family: "San Francisco Display", "PingFang SC", sans-serif;
+}
+
+footer {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-fluid {
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    background-color: rgb(48, 166, 203);
+    color: rgb(235, 235, 235);
+}
+
+.good {
+    background: rgb(255, 238, 68);
+    margin-bottom: 1px;
+}
+
+.goodWord {
+    height: 100%;
+}
+
+.goodList {
+    background: rgb(255, 255, 170);
+    position: relative;
+    left: 1px;
+}
+
+.bad {
+    background-color: rgb(255, 68, 68);
+}
+
+.badWord {
+    color: white;
+    height: 100%;
+}
+
+.badList {
+    background: rgb(255, 221, 210);
+    position: relative;
+    left: 1px;
+}
+
+.mainStuff {
+    line-height: 150%;
+    font-size: 15pt;
+    font-weight: bold;
+    color: #444;
+    margin-top: 10px;
+}
+
+.mainStuffAdd {
+    font-size: 11pt;
+    font-weight: normal;
+    color: #777;
+    line-height: 110%;
+    margin-bottom: 10px;
+}
+
+.addon {
+    margin-top: 18px;
+    margin-bottom: 60px;
+}
+
+.bigBlue {
+    color: rgb(74, 148, 201);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    footer {
+        width: 100%;
+    }
+    .container-fluid {
+        width: 100%;
+    }
+}
