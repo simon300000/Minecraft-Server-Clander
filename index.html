@@ -2,231 +2,231 @@
 <html lang='zh-CN'>
 
 <head>
-		<meta name='description' content='Minecraft腐竹老黄历'>
-		<meta name='author' content='simon3000, simon3000@163.com'>
-		<meta charset="utf-8">
-		<meta name='keywords' content='腐竹, 服主, 黄历, Minecraft, 我的世界, 我的世界黄历'>
-		<!-- 想法 and 部分JS and 部分CSS from http://sandbox.runjs.cn/show/ydp3it7b -->
-		<title>服主老黄历</title>
-		<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
-		<link rel='icon' href='favicon.ico' type='image/x-icon' />
-		<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
-		<script type='text/javascript'>
-				console.time('done')
-				var ver = '11'
-				var whir = window.whir || {};
-				whir.res = {
-						//pageVersion: '', //页面版本，由页面输出，用于刷新localStorage缓存
-						//动态加载js文件并缓存
-						loadJs: function(name, url, callback) {
-								if (window.localStorage) {
-										var xhr;
-										var js = localStorage.getItem(name);
-										if (js == null || js.length == 0) {
-												if (window.ActiveXObject) {
-														xhr = new ActiveXObject('Microsoft.XMLHTTP');
-												} else if (window.XMLHttpRequest) {
-														xhr = new XMLHttpRequest();
-												}
-												if (xhr != null) {
-														xhr.open('GET', url);
-														xhr.send(null);
-														xhr.onreadystatechange = function() {
-																if (xhr.readyState == 4 && xhr.status == 200) {
-																		js = xhr.responseText;
-																		localStorage.setItem(name, js);
-																		js = js == null ? '' : js;
-																		whir.res.writeJs(js);
-																		if (callback != null) {
-																				callback(); //回调，执行下一个引用
-																		}
-																}
-														};
-												}
-										} else {
-												whir.res.writeJs(js);
-												if (callback != null) {
-														callback(); //回调，执行下一个引用
-												}
-										}
-								} else {
-										whir.res.linkJs(url);
-								}
-						},
-						loadCss: function(name, url) {
-								if (window.localStorage) {
-										var xhr;
-										var css = localStorage.getItem(name);
-										if (css == null || css.length == 0) {
-												if (window.ActiveXObject) {
-														xhr = new ActiveXObject('Microsoft.XMLHTTP');
-												} else if (window.XMLHttpRequest) {
-														xhr = new XMLHttpRequest();
-												}
-												if (xhr != null) {
-														xhr.open('GET', url);
-														xhr.send(null);
-														xhr.onreadystatechange = function() {
-																if (xhr.readyState == 4 && xhr.status == 200) {
-																		css = xhr.responseText;
-																		localStorage.setItem(name, css);
-																		css = css == null ? '' : css;
-																		css = css.replace(/images\//g, 'style/images/'); //css里的图片路径需单独处理
-																		whir.res.writeCss(css);
-																}
-														};
-												}
-										} else {
-												css = css.replace(/images\//g, 'style/images/'); //css里的图片路径需单独处理
-												whir.res.writeCss(css);
-										}
-								} else {
-										whir.res.linkCss(url);
-								}
-						},
-						//往页面写入js脚本
-						writeJs: function(text) {
-								var head = document.getElementsByTagName('HEAD').item(0);
-								var link = document.createElement('script');
-								link.type = 'text/javascript';
-								link.innerHTML = text;
-								head.appendChild(link);
-						},
-						//往页面写入css样式
-						writeCss: function(text) {
-								var head = document.getElementsByTagName('HEAD').item(0);
-								var link = document.createElement('style');
-								link.type = 'text/css';
-								link.innerHTML = text;
-								head.appendChild(link);
-						},
-						//往页面引入js脚本
-						linkJs: function(url) {
-								var head = document.getElementsByTagName('HEAD').item(0);
-								var link = document.createElement('script');
-								link.type = 'text/javascript';
-								link.src = url;
-								head.appendChild(link);
-						},
-						//往页面引入css样式
-						linkCss: function(url) {
-								var head = document.getElementsByTagName('HEAD').item(0);
-								var link = document.createElement('link');
-								link.type = 'text/css';
-								link.rel = 'stylesheet';
-								link.rev = 'stylesheet';
-								link.media = 'screen';
-								link.href = url;
-								head.appendChild(link);
-						}
-				}
+	<meta name='description' content='Minecraft腐竹老黄历'>
+	<meta name='author' content='simon3000, simon3000@163.com'>
+	<meta charset="utf-8">
+	<meta name='keywords' content='腐竹, 服主, 黄历, Minecraft, 我的世界, 我的世界黄历'>
+	<!-- 想法 and 部分JS and 部分CSS from http://sandbox.runjs.cn/show/ydp3it7b -->
+	<title>服主老黄历</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+	<link rel='icon' href='favicon.ico' type='image/x-icon' />
+	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+	<script type='text/javascript'>
+		console.time('done')
+		var ver = '11'
+		var whir = window.whir || {};
+		whir.res = {
+			//pageVersion: '', //页面版本，由页面输出，用于刷新localStorage缓存
+			//动态加载js文件并缓存
+			loadJs: function(name, url, callback) {
 				if (window.localStorage) {
-						if (!localStorage.whirVersion) {
-								localStorage.whirVersion = ver
-						} else if (localStorage.whirVersion != ver) {
-								for (var variable in localStorage) {
-										if (localStorage.hasOwnProperty(variable)) {
-												if (variable.match(/^whir_/)) {
-														delete localStorage[variable]
-														console.log('drop ' + variable);
-												}
-										}
+					var xhr;
+					var js = localStorage.getItem(name);
+					if (js == null || js.length == 0) {
+						if (window.ActiveXObject) {
+							xhr = new ActiveXObject('Microsoft.XMLHTTP');
+						} else if (window.XMLHttpRequest) {
+							xhr = new XMLHttpRequest();
+						}
+						if (xhr != null) {
+							xhr.open('GET', url);
+							xhr.send(null);
+							xhr.onreadystatechange = function() {
+								if (xhr.readyState == 4 && xhr.status == 200) {
+									js = xhr.responseText;
+									localStorage.setItem(name, js);
+									js = js == null ? '' : js;
+									whir.res.writeJs(js);
+									if (callback != null) {
+										callback(); //回调，执行下一个引用
+									}
 								}
-								localStorage.whirVersion = ver
+							};
 						}
+					} else {
+						whir.res.writeJs(js);
+						if (callback != null) {
+							callback(); //回调，执行下一个引用
+						}
+					}
+				} else {
+					whir.res.linkJs(url);
 				}
-				whir.res.loadCss('whir_bootstrap', '//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css')
-				whir.res.loadCss('whir_css', 'js/css.css')
-				whir.res.loadCss('whir_npr_css', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css')
-				whir.res.loadJs('whir_npr_js', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js', function() {
-						window.onload = function() {
-								NProgress.start()
-								whir.res.loadJs('whir_lodash', '//cdn.bootcss.com/lodash-compat/3.10.2/lodash.min.js', function() {
-										NProgress.inc()
-										whir.res.loadJs('whir_mongo', 'js/minimongo.min.js', function() {
-												NProgress.inc()
-												whir.res.loadJs('whir_jquery', "//cdn.bootcss.com/jquery/2.2.0/jquery.min.js", function() {
-														NProgress.inc()
-														whir.res.loadJs('whir_fun', 'js/fun.js', function() {
-																startChange()
-																document.getElementsByClassName('container-fluid')[0].style.display = 'block'
-																NProgress.done()
-														})
-												})
-										})
-								})
+			},
+			loadCss: function(name, url) {
+				if (window.localStorage) {
+					var xhr;
+					var css = localStorage.getItem(name);
+					if (css == null || css.length == 0) {
+						if (window.ActiveXObject) {
+							xhr = new ActiveXObject('Microsoft.XMLHTTP');
+						} else if (window.XMLHttpRequest) {
+							xhr = new XMLHttpRequest();
 						}
-						if (document.readyState == 'complete') {
-								window.onload()
+						if (xhr != null) {
+							xhr.open('GET', url);
+							xhr.send(null);
+							xhr.onreadystatechange = function() {
+								if (xhr.readyState == 4 && xhr.status == 200) {
+									css = xhr.responseText;
+									localStorage.setItem(name, css);
+									css = css == null ? '' : css;
+									css = css.replace(/images\//g, 'style/images/'); //css里的图片路径需单独处理
+									whir.res.writeCss(css);
+								}
+							};
 						}
+					} else {
+						css = css.replace(/images\//g, 'style/images/'); //css里的图片路径需单独处理
+						whir.res.writeCss(css);
+					}
+				} else {
+					whir.res.linkCss(url);
+				}
+			},
+			//往页面写入js脚本
+			writeJs: function(text) {
+				var head = document.getElementsByTagName('HEAD').item(0);
+				var link = document.createElement('script');
+				link.type = 'text/javascript';
+				link.innerHTML = text;
+				head.appendChild(link);
+			},
+			//往页面写入css样式
+			writeCss: function(text) {
+				var head = document.getElementsByTagName('HEAD').item(0);
+				var link = document.createElement('style');
+				link.type = 'text/css';
+				link.innerHTML = text;
+				head.appendChild(link);
+			},
+			//往页面引入js脚本
+			linkJs: function(url) {
+				var head = document.getElementsByTagName('HEAD').item(0);
+				var link = document.createElement('script');
+				link.type = 'text/javascript';
+				link.src = url;
+				head.appendChild(link);
+			},
+			//往页面引入css样式
+			linkCss: function(url) {
+				var head = document.getElementsByTagName('HEAD').item(0);
+				var link = document.createElement('link');
+				link.type = 'text/css';
+				link.rel = 'stylesheet';
+				link.rev = 'stylesheet';
+				link.media = 'screen';
+				link.href = url;
+				head.appendChild(link);
+			}
+		}
+		if (window.localStorage) {
+			if (!localStorage.whirVersion) {
+				localStorage.whirVersion = ver
+			} else if (localStorage.whirVersion != ver) {
+				for (var variable in localStorage) {
+					if (localStorage.hasOwnProperty(variable)) {
+						if (variable.match(/^whir_/)) {
+							delete localStorage[variable]
+							console.log('drop ' + variable);
+						}
+					}
+				}
+				localStorage.whirVersion = ver
+			}
+		}
+		whir.res.loadCss('whir_bootstrap', '//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css')
+		whir.res.loadCss('whir_css', 'js/css.css')
+		whir.res.loadCss('whir_npr_css', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css')
+		whir.res.loadJs('whir_npr_js', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js', function() {
+			window.onload = function() {
+				NProgress.start()
+				whir.res.loadJs('whir_lodash', '//cdn.bootcss.com/lodash-compat/3.10.2/lodash.min.js', function() {
+					NProgress.inc()
+					whir.res.loadJs('whir_mongo', 'js/minimongo.min.js', function() {
+						NProgress.inc()
+						whir.res.loadJs('whir_jquery', "//cdn.bootcss.com/jquery/2.2.0/jquery.min.js", function() {
+							NProgress.inc()
+							whir.res.loadJs('whir_fun', 'js/fun.js', function() {
+								startChange()
+								document.getElementsByClassName('container-fluid')[0].style.display = 'block'
+								NProgress.done()
+							})
+						})
+					})
 				})
+			}
+			if (document.readyState == 'complete') {
+				window.onload()
+			}
+		})
 
-		</script>
-		<style media="screen">
-				.container-fluid {
-						display: none;
-				}
+	</script>
+	<style media="screen">
+		.container-fluid {
+			display: none;
+		}
 
-		</style>
+	</style>
 </head>
 
 <body>
-		<div class='container-fluid'>
-				<header>
-						<div class='row title'>
-								<div class='col-xs-12'>
-										<h4>Minecraft服主老黄历</h4>
-								</div>
-						</div>
-						<div class='row'>
-								<div class='col-xs-12' style='padding: 0px;'>
-										<h3 class='time text-center' style='margin-top: 3px;margin-bottom: 3px;'>→_→</h3>
-								</div>
-						</div>
-				</header>
-				<main>
+	<div class='container-fluid'>
+		<header>
+			<div class='row title'>
+				<div class='col-xs-12'>
+					<h4>Minecraft服主老黄历</h4>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-xs-12' style='padding: 0px;'>
+					<h3 class='time text-center' style='margin-top: 3px;margin-bottom: 3px;'>→_→</h3>
+				</div>
+			</div>
+		</header>
+		<main>
 
 
-						<div class='row good'>
-								<div class='col-xs-4 goodWord'>
-										<h1>宜</h1>
-								</div>
-								<div class='col-xs-8 goodList'>
-										没有javascript用不了哦
-								</div>
-						</div>
+			<div class='row good'>
+				<div class='col-xs-4 goodWord'>
+					<h1>宜</h1>
+				</div>
+				<div class='col-xs-8 goodList'>
+					没有javascript用不了哦
+				</div>
+			</div>
 
-						<div class='row bad'>
-								<div class='col-xs-4 badWord'>
-										<h1>忌</h1>
-								</div>
-								<div class='col-xs-8 badList'>
-										需要javascript →_→
-								</div>
-						</div>
-						<div class='row addon'>
-								<div class='col-xs-12'>
-										<p>
-												<b>今日宜饮: </b><span class="drink"></span>, <span class="drink"></span>
-										</p>
-										<p>
-												<b>服务器朝向: </b> 服务器面朝<span class='direction bigBlue'></span>, 玩家最多
-										</p>
-										<p>
-												<b>bat/ssh窗口位置: </b> <span class="bat"></span>, 延迟最低
-										</p>
-								</div>
-						</div>
-		</div>
-		</main>
-		</div>
+			<div class='row bad'>
+				<div class='col-xs-4 badWord'>
+					<h1>忌</h1>
+				</div>
+				<div class='col-xs-8 badList'>
+					需要javascript →_→
+				</div>
+			</div>
+			<div class='row addon'>
+				<div class='col-xs-12'>
+					<p>
+						<b>今日宜饮: </b><span class="drink"></span>, <span class="drink"></span>
+					</p>
+					<p>
+						<b>服务器朝向: </b> 服务器面朝<span class='direction bigBlue'></span>, 玩家最多
+					</p>
+					<p>
+						<b>bat/ssh窗口位置: </b> <span class="bat"></span>, 延迟最低
+					</p>
+				</div>
+			</div>
+	</div>
+	</main>
+	</div>
 
-		<footer>
-				<blockquote>
-						本黄历仅服务于各位Minecraft腐竹, 如果引起服务器崩溃, 玩家流失, 主机爆炸, 被DDOS/压测 等事件本黄历概不负责
-				</blockquote>
-				<div class='text-right'>by simon3000</div>
-		</footer>
+	<footer>
+		<blockquote>
+			本黄历仅服务于各位Minecraft腐竹, 如果引起服务器崩溃, 玩家流失, 主机爆炸, 被DDOS/压测 等事件本黄历概不负责
+		</blockquote>
+		<div class='text-right'>by simon3000</div>
+	</footer>
 
 
 
