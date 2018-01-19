@@ -13,15 +13,15 @@
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
 	<script type='text/javascript'>
 		console.time('done')
-		var ver = '11'
-		var whir = window.whir || {};
+		let ver = '11'
+		let whir = window.whir || {};
 		whir.res = {
 			//pageVersion: '', //页面版本，由页面输出，用于刷新localStorage缓存
 			//动态加载js文件并缓存
 			loadJs: function(name, url, callback) {
 				if (window.localStorage) {
-					var xhr;
-					var js = localStorage.getItem(name);
+					let xhr;
+					let js = localStorage.getItem(name);
 					if (js == null || js.length == 0) {
 						if (window.ActiveXObject) {
 							xhr = new ActiveXObject('Microsoft.XMLHTTP');
@@ -55,8 +55,8 @@
 			},
 			loadCss: function(name, url) {
 				if (window.localStorage) {
-					var xhr;
-					var css = localStorage.getItem(name);
+					let xhr;
+					let css = localStorage.getItem(name);
 					if (css == null || css.length == 0) {
 						if (window.ActiveXObject) {
 							xhr = new ActiveXObject('Microsoft.XMLHTTP');
@@ -86,32 +86,32 @@
 			},
 			//往页面写入js脚本
 			writeJs: function(text) {
-				var head = document.getElementsByTagName('HEAD').item(0);
-				var link = document.createElement('script');
+				let head = document.getElementsByTagName('HEAD').item(0);
+				let link = document.createElement('script');
 				link.type = 'text/javascript';
 				link.innerHTML = text;
 				head.appendChild(link);
 			},
 			//往页面写入css样式
 			writeCss: function(text) {
-				var head = document.getElementsByTagName('HEAD').item(0);
-				var link = document.createElement('style');
+				let head = document.getElementsByTagName('HEAD').item(0);
+				let link = document.createElement('style');
 				link.type = 'text/css';
 				link.innerHTML = text;
 				head.appendChild(link);
 			},
 			//往页面引入js脚本
 			linkJs: function(url) {
-				var head = document.getElementsByTagName('HEAD').item(0);
-				var link = document.createElement('script');
+				let head = document.getElementsByTagName('HEAD').item(0);
+				let link = document.createElement('script');
 				link.type = 'text/javascript';
 				link.src = url;
 				head.appendChild(link);
 			},
 			//往页面引入css样式
 			linkCss: function(url) {
-				var head = document.getElementsByTagName('HEAD').item(0);
-				var link = document.createElement('link');
+				let head = document.getElementsByTagName('HEAD').item(0);
+				let link = document.createElement('link');
 				link.type = 'text/css';
 				link.rel = 'stylesheet';
 				link.rev = 'stylesheet';
@@ -124,11 +124,11 @@
 			if (!localStorage.whirVersion) {
 				localStorage.whirVersion = ver
 			} else if (localStorage.whirVersion != ver) {
-				for (var variable in localStorage) {
-					if (localStorage.hasOwnProperty(variable)) {
-						if (variable.match(/^whir_/)) {
-							delete localStorage[variable]
-							console.log('drop ' + variable);
+				for (let letiable in localStorage) {
+					if (localStorage.hasOwnProperty(letiable)) {
+						if (letiable.match(/^whir_/)) {
+							delete localStorage[letiable]
+							console.log('drop ' + letiable);
 						}
 					}
 				}
