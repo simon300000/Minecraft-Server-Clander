@@ -12,6 +12,8 @@
 	<link rel='icon' href='favicon.ico' type='image/x-icon' />
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
 	<script type='text/javascript'>
+		console.time('done')
+
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/sw.js', {
 				scope: '/'
@@ -24,8 +26,6 @@
 			});
 		}
 
-
-		console.time('done')
 		let ver = '12'
 		let whir = window.whir || {};
 		whir.res = {
