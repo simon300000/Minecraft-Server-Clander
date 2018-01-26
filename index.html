@@ -148,17 +148,17 @@
 				localStorage.whirVersion = ver
 			}
 		}
-		whir.res.loadCss('whir_bootstrap', '//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css')
+		whir.res.loadCss('whir_bootstrap', 'https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css')
 		whir.res.loadCss('whir_css', 'js/css.css')
-		whir.res.loadCss('whir_npr_css', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css')
-		whir.res.loadJs('whir_npr_js', '//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js', function() {
+		whir.res.loadCss('whir_npr_css', 'https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css')
+		whir.res.loadJs('whir_npr_js', 'https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js', function() {
 			window.onload = function() {
 				NProgress.start()
-				whir.res.loadJs('whir_lodash', '//cdn.bootcss.com/lodash-compat/3.10.2/lodash.min.js', function() {
+				whir.res.loadJs('whir_lodash', 'https://cdn.bootcss.com/lodash-compat/3.10.2/lodash.min.js', function() {
 					NProgress.inc()
 					whir.res.loadJs('whir_mongo', 'js/minimongo.min.js', function() {
 						NProgress.inc()
-						whir.res.loadJs('whir_jquery', "//cdn.bootcss.com/jquery/2.2.0/jquery.min.js", function() {
+						whir.res.loadJs('whir_jquery', "https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", function() {
 							NProgress.inc()
 							whir.res.loadJs('whir_fun', 'js/fun.js', function() {
 								startChange()
